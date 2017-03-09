@@ -1,0 +1,49 @@
+.game{
+	width: 800px;
+	border: 1px solid gray;
+}
+
+.button{
+	height: 50px;
+	width: 50px;
+	border: 1px solid gray;
+	margin-bottom: 7px;
+	margin-left: 10px;
+	margin-top: 7px;
+}
+
+.input-buttons{
+	width: 75px;
+}
+
+#yellow{
+	background-color: yellow;
+}
+
+#green{
+	background-color: green;
+}
+
+#blue{
+	background-color: blue;
+}
+
+#red{
+	background-color: red;
+}
+
+#purple{
+	background-color: purple;
+}
+
+#white{
+	background-color: white;
+}
+
+#black{
+	background-color: black;
+}
+
+#orange{
+	background-color: orange;
+}

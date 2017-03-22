@@ -1,14 +1,33 @@
 var allcolors = ["yellow", "green", "blue", "red", "purple", "white", "black", "orange"];
-var codelength = 4;
 var colorCode = [];
 var userInput = [];
 var tempColorCode = [];
 var userChoices = 4;
+var gameLength = 10;
+
+//grid 
+
+function gridCreate(){
+	for(var i = 1; i <= gameLength; i++) {
+		var div = document.createElement('div');
+		div.id = "row" + i;
+		document.getElementById('grid').appendChild(div);
+
+
+		for(var j = 1; j <= userChoices; j++) {
+			var button = document.createElement("button");
+			button.id = 'button' + j; 
+			document.getElementById("row" + i).appendChild(button);
+		}
+	}	
+}
+
+gridCreate();
 
 //random color generator
 
 function randomcolor(){
-	for (var i = 0; i <= codelength -1; i++){
+	for (var i = 0; i <= userChoices -1; i++){
 		var number = Math.floor(Math.random()* 8);
 		colorCode.push(allcolors[number]);
 	}
@@ -17,13 +36,13 @@ function randomcolor(){
 
 //userinput
 
-	function UserInput(color){
-	 	userInput.push(color);
-	 	console.log(color);
-	 	if(userInput.length === colorCode.length){
-	 		Compare();
-	 	}
-	}
+function UserInput(color){
+ 	userInput.push(color);
+ 	console.log(color);
+ 	if(userInput.length === colorCode.length){
+ 		Compare();
+ 	}
+}
 
 //compare
 

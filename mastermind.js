@@ -4,6 +4,7 @@ var userInput = [];
 var tempColorCode = [];
 var userChoices = 4;
 var gameLength = 10;
+var rowCounter = 1;
 
 //grid 
 
@@ -16,7 +17,7 @@ function gridCreate(){
 
 		for(var j = 1; j <= userChoices; j++) {
 			var button = document.createElement("button");
-			button.id = 'button' + j; 
+			button.id = 'row' + i + 'button' + j; 
 			document.getElementById("row" + i).appendChild(button);
 		}
 	}	
@@ -39,6 +40,7 @@ function randomcolor(){
 function UserInput(color){
  	userInput.push(color);
  	console.log(color);
+ 	document.getElementById('row' + rowCounter + 'button' +userInput.length).style.backgroundColor = color;
  	if(userInput.length === colorCode.length){
  		Compare();
  	}
@@ -83,7 +85,7 @@ function UserInput(color){
 				console.log(userInput[i], 'Bestaat niet')
 			}
 		}
-
+		rowCounter++;
 		userInput = [];
 		tempColorCode = [];
 
@@ -91,8 +93,13 @@ function UserInput(color){
 			return win();
 		}
 	}
+
+	if(rowCounter === gameLength){
+		alert('Game Over!');
+		reload();
+	}
 		
 	function win(){
+		console.log("Goed gespeeld!");
 		alert('Goed gespeeld!');
-		console.log("Goed gespeeld!")
 	}

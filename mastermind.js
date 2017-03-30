@@ -3,10 +3,10 @@ var colorCode = [];
 var userInput = [];
 var tempColorCode = [];
 var userChoices = 4;
-var gameLength = 10;
+var gameLength = 3;
 var rowCounter = 1;
 
-//grid 
+//Create Grid
 
 function gridCreate(){
 	for(var i = 1; i <= gameLength; i++) {
@@ -25,9 +25,9 @@ function gridCreate(){
 
 gridCreate();
 
-//random color generator
+//Random Color Generator
 
-function randomcolor(){
+function randomColor(){
 	for (var i = 0; i <= userChoices -1; i++){
 		var number = Math.floor(Math.random()* 8);
 		colorCode.push(allcolors[number]);
@@ -35,18 +35,25 @@ function randomcolor(){
 	console.log(colorCode);
 }
 
-//userinput
+//UserInput
 
-function UserInput(color){
+function getUserInput(color){
  	userInput.push(color);
  	console.log(color);
- 	document.getElementById('row' + rowCounter + 'button' +userInput.length).style.backgroundColor = color;
+
+ 	var inputId = 'row' + rowCounter + 'button' +userInput.length;
+ 	console.log(inputId);
+ 	var input =  document.getElementById(inputId);
+
+
+
+ 	input.style.backgroundColor = color;
  	if(userInput.length === colorCode.length){
  		Compare();
  	}
 }
 
-//compare
+//Push ColorCode to TempColorCode
 
 	function CctoTcc () {
 	 	var i = 0;
@@ -55,6 +62,8 @@ function UserInput(color){
 		i++
 		});
 	}
+
+//Compare userInput with randomColor
 
 	function Compare(){
 		CctoTcc();
@@ -90,7 +99,8 @@ function UserInput(color){
 		tempColorCode = [];
 
 		if(Pinblack === userChoices){
-			return win();
+			setTimeout(win,0);
+			return;
 		}
 	}
 

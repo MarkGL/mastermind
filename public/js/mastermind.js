@@ -1,5 +1,3 @@
-
-
 var allcolors = ["yellow", "green", "blue", "red", "purple", "white", "black", "orange"];
 var colorCode = [];
 var userInput = [];
@@ -44,13 +42,13 @@ function getUserInput(color){
  	console.log(color);
  	document.getElementById('row' + rowCounter + 'button' +userInput.length).style.backgroundColor = color;
  	if(userInput.length === colorCode.length){
- 		Compare();
+ 		comPare();
  	}
 }
 
 //Push ColorCode to TempColorCode
 
-	function CctoTcc () {
+	function colorcodetoTempcolorcode () {
 	 	var i = 0;
 		colorCode.forEach(function() {
 		tempColorCode.push(colorCode[i]);
@@ -60,10 +58,10 @@ function getUserInput(color){
 
 //Compare userInput with randomColor
 
-	function Compare(){
-		CctoTcc();
-		var Pinblack = 0;
-		var Pinwhite = 0;
+	function comPare(){
+		colorcodetoTempcolorcode();
+		var pinBlack = 0;
+		var pinWhite = 0;
 
 		for (var i = 0; i <= userInput.length -1; i++) {
 			if (tempColorCode[i] === userInput[i]) {
@@ -71,8 +69,8 @@ function getUserInput(color){
 				tempColorCode.splice(i, 1);
 				userInput.splice(i, 1);
 				i--;
-				Pinblack++;
-				console.log(Pinblack);
+				pinBlack++;
+				console.log(pinBlack);
 			}
 		}
 
@@ -83,8 +81,8 @@ function getUserInput(color){
 				tempColorCode.splice(compare, 1);
 				userInput.splice(i, 1);
 				i--;
-				Pinwhite++;
-				console.log(Pinwhite);
+				pinWhite++;
+				console.log(pinWhite);
 			}else{
 				console.log(userInput[i], 'Bestaat niet')
 			}
@@ -93,7 +91,7 @@ function getUserInput(color){
 		userInput = [];
 		tempColorCode = [];
 
-		if(Pinblack === userChoices){
+		if(pinBlack === userChoices){
 			setTimeout(win,0);
 			return;
 		}
@@ -111,4 +109,4 @@ function getUserInput(color){
 
 (function () {
     randomColor();
-})();
+}) ();

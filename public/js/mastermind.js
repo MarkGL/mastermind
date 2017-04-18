@@ -38,6 +38,10 @@ function randomColor(){
 //UserInput
 
 function getUserInput(color){
+	if(rowCounter === gameLength + 1){
+		alert('Game Over!');
+		location.reload();
+	}
  	userInput.push(color);
  	console.log(color);
  	document.getElementById('row' + rowCounter + 'button' +userInput.length).style.backgroundColor = color;
@@ -65,7 +69,7 @@ function getUserInput(color){
 
 		for (var i = 0; i <= userInput.length -1; i++) {
 			if (tempColorCode[i] === userInput[i]) {
-				console.log(userInput[i], 'Correct geplaatst')
+				console.log(userInput[i], 'Correct geplaatst');
 				tempColorCode.splice(i, 1);
 				userInput.splice(i, 1);
 				i--;
@@ -77,16 +81,17 @@ function getUserInput(color){
 		for (var i = 0; i <= userInput.length -1; i++) {
 			compare = tempColorCode.indexOf(userInput[i]);
 			if (compare > -1){
-				console.log(userInput[i], 'Incorrect geplaatst')
+				console.log(userInput[i], 'Incorrect geplaatst');
 				tempColorCode.splice(compare, 1);
 				userInput.splice(i, 1);
 				i--;
 				pinWhite++;
 				console.log(pinWhite);
 			}else{
-				console.log(userInput[i], 'Bestaat niet')
+				console.log(userInput[i], 'Bestaat niet');
 			}
 		}
+
 		rowCounter++;
 		userInput = [];
 		tempColorCode = [];
@@ -95,11 +100,6 @@ function getUserInput(color){
 			setTimeout(win,0);
 			return;
 		}
-	}
-
-	if(rowCounter === gameLength){
-		alert('Game Over!');
-		reload();
 	}
 		
 	function win(){

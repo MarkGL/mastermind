@@ -9,7 +9,7 @@
         <!-- echo out the system feedback (error and success messages) -->
         <?php $this->renderFeedbackMessages(); ?>
 
-            <div class="game" id="game">
+            <div class="game">
                 <div class="input-buttons">
                     <button class="button" id="yellow" onclick="getUserInput('yellow')"></button>
                     <button class="button" id="green" onclick="getUserInput('green')"></button>

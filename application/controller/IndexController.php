@@ -16,6 +16,10 @@ class IndexController extends Controller
      */
     public function index()
     {
+        $this->View->render('index/index2');
+    }
+    public function option()
+    {
         $this->View->render('index/index');
     }
 }
